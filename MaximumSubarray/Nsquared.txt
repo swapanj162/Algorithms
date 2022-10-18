@@ -1,1 +1,32 @@
+//O(n^2)
 
+void MaxSubArrayNsquared(int *num,int size)
+{
+   int indexstartMax=0;//Store the index of the maxSubArray
+   int sizeMaxSum;//Store the size of the maxSubarray
+   int maxSum=-100;
+   for(int startIndex=0;startIndex<size;startIndex++)// vary from index 0 to size-1
+   {
+      int sum=0;
+      for(int i=startIndex;i<size;i++)// Calculate all Subarrays starting from a particular Index
+      {
+         sum=sum+num[i];
+         //cout<<"Sum="<<sum<<endl;
+         if(sum>maxSum)
+         {
+            maxSum=sum;
+            indexstartMax=startIndex;
+            sizeMaxSum=i-startIndex+1;
+            //cout<<"MaxSum is"<<maxSum<<endl;
+         }
+
+      }
+
+   }
+
+cout<<"All Sums Calculated"<<endl;
+cout<<"StartIndexIs"<<indexstartMax<<endl;
+cout<<"MaxSum is"<<maxSum<<endl;
+cout<<"Size of Max Subarray is"<<sizeMaxSum<<endl;
+
+}
