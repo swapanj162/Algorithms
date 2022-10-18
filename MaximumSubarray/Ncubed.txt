@@ -34,3 +34,9 @@ void MaxSubArrayNcubed(int *num,int size)
         //cout<<"MaxSum is"<<maxSum<<endl;
       
    }
+   cout<<"All Sums Calculated"<<endl;
+   cout<<"StartIndexIs"<<indexstartMax<<endl;
+   cout<<"MaxSum is"<<maxSum<<endl;
+   cout<<"Size of Max Subarray is"<<sizeMaxSum<<endl;
+
+}
