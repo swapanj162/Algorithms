@@ -1,1 +1,36 @@
+//O(n^3) implementation
+void MaxSubArrayNcubed(int *num,int size)
+{
+   int indexstartMax=0;//Store the index of the maxSubArray
+   int sizeMaxSum;//Store the size of the maxSubarray
+   int maxSum=-100;
+   int subArraySizeMax=1;
+   for(int j=subArraySizeMax;j<=size;j++) //Vary Subarray Size from 1 to length of array
+   {
+      //cout<<"SubArraySize="<<j<<endl;
+      for(int startIndex=0;startIndex<size;startIndex++)//Vary StartIndex from 0 to size-1
+      {
+         int sum=0;
+         if(startIndex+j>size)
+         {
+            break;
+         }
+         for(int i=startIndex;i<startIndex+j;i++)//Calculate Max Sum of each subarray of size j.
+         {
+            sum=sum+num[i];
+   
+         }
+         //cout<<"Sum is"<<sum<<endl;
+         if(sum>maxSum)
+         {
+            maxSum=sum;
+            indexstartMax=startIndex;
+            sizeMaxSum=j;
+            //cout<<"MaxSum is"<<maxSum<<endl;
 
+         }
+
+      }
+        //cout<<"MaxSum is"<<maxSum<<endl;
+      
+   }
