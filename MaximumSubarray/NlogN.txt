@@ -1,1 +1,124 @@
+#O(nlogn)
+
+int MaxSubArrayNlogN(int *num,int size)
+{
+   for(int i=0;i<size;i++)
+   {
+      cout<<num[i]<<" ";
+   }
+   cout<<endl;
+   if(size==1)
+   {
+      return num[0];
+   }
+   int max;
+   int maxpartial;
+   int m=size/2;
+   int n=size-m;
+   int leftsumMax=MaxSubArrayNlogN(num,m);
+   int rightsumMax=MaxSubArrayNlogN(num+m,n);
+   int s_left=0;
+   int s_right=0;
+   int s_left_max=-10000;
+   int s_right_max=-1000;
+   for(int i=m-1;i>=0;i--)
+   {
+      s_left=s_left+num[i];
+      if(s_left>s_left_max)
+      {
+         s_left_max=s_left;
+      }
+   }
+   for(int i=m;i<size;i++)
+   {
+      s_right=s_right+num[i];
+      if(s_right>s_right_max)
+      {
+         s_right_max=s_right;
+      }
+   }
+   if(leftsumMax<rightsumMax)
+   {
+      maxpartial=rightsumMax;
+   }
+   else
+   {
+      maxpartial=leftsumMax;
+   }
+   if(maxpartial<(s_left_max+s_right_max))
+   {
+      max=s_left_max+s_right_max;
+   }
+   else
+   {
+      max=maxpartial;
+   }
+   cout<<"leftsum_max="<<leftsumMax<<endl;
+   cout<<"rightsumMax="<<rightsumMax<<endl;
+   cout<<"MiddleSum="<<s_left_max+s_right_max<<endl;
+   cout<<"max="<<max<<endl;
+   return max;
+
+
+
+}
+
+
+Input:
+
+-2
+-3
+4
+-1
+-2
+1
+5
+-3
+
+
+Output:
+
+-2 -3 4 -1 -2 1 5 -3 
+-2 -3 4 -1 
+-2 -3 
+-2 
+-3 
+leftsum_max=-2
+rightsumMax=-3
+MiddleSum=-5
+max=-2
+4 -1 
+4 
+-1 
+leftsum_max=4
+rightsumMax=-1
+MiddleSum=3
+max=4
+leftsum_max=-2
+rightsumMax=4
+MiddleSum=1
+max=4
+-2 1 5 -3 
+-2 1 
+-2 
+1 
+leftsum_max=-2
+rightsumMax=1
+MiddleSum=-1
+max=1
+5 -3 
+5 
+-3 
+leftsum_max=5
+rightsumMax=-3
+MiddleSum=2
+max=5
+leftsum_max=1
+rightsumMax=5
+MiddleSum=6
+max=6
+leftsum_max=4
+rightsumMax=6
+MiddleSum=7
+max=7
 
