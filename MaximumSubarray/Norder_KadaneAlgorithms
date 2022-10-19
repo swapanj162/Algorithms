@@ -1,1 +1,64 @@
 
+#O(n)_linear - Kadane Algorithm:
+
+void MaxSubArrayN(int *num,int size)
+{
+   int localMax=num[0];
+   int globalMax=-1000;
+   cout<<"LocalMax is "<<localMax<<endl;
+   cout<<"GlobalMax is "<<globalMax<<endl;
+   for(int i=1;i<size;i++)
+   {
+      if(num[i]>localMax+num[i])//LocalMax at index i is Max(LocalMax at index i-1,num[i])
+      {
+         localMax=num[i];
+      }
+      else
+      {
+         localMax=localMax+num[i];
+      }
+      if(localMax>globalMax)
+      {
+         globalMax=localMax;
+      }
+      cout<<"LocalMax is "<<localMax<<endl;
+      cout<<"GlobalMax is "<<globalMax<<endl;
+   }
+   cout<<"Max sum is "<<globalMax<<endl;
+
+
+   
+
+}
+Input:
+
+-2
+-3
+4
+-1
+-2
+1
+5
+-3
+
+
+
+Output:
+
+LocalMax is -2
+GlobalMax is -1000
+LocalMax is -3
+GlobalMax is -3
+LocalMax is 4
+GlobalMax is 4
+LocalMax is 3
+GlobalMax is 4
+LocalMax is 1
+GlobalMax is 4
+LocalMax is 2
+GlobalMax is 4
+LocalMax is 7
+GlobalMax is 7
+LocalMax is 4
+GlobalMax is 7
+Max sum is 7
