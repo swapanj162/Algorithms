@@ -1,1 +1,24 @@
+//BuBBle Sort-
+Worst Case-O(n^2)
+Average case- O((n^2)
+Best Case-O(n^2)
+In Place Sorting
+Stable Sorting:
 
+void bubblesort(int A[],int size)
+{
+   cout<<"Hi ..the result is generated using bubble sort"<<endl;
+   int temp;
+   for(int i=0;i<size;i++)
+   {
+      for(int j=0;j<size-i-1;j++)
+      {
+         if(A[j+1]<A[j])
+         {
+            temp=A[j];
+            A[j]=A[j+1];
+            A[j+1]=temp;
+         }
+      }
+   }
+}
