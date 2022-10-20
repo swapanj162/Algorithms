@@ -3,7 +3,9 @@ Worst Case-O(n^2)
 Average case- O((n^2)
 Best Case-O(n^2)
 In Place Sorting
-Stable Sorting:
+Stable Sorting:Yes
+
+//Loop Invariance:At the start of each iteration i of the outer loop,i elements are in the correct position. 
 
 void bubblesort(int A[],int size)
 {
