@@ -3,7 +3,7 @@
 //Best Case-O(n)
 //Average case- O(n^2)
 //In Place Sorting
-//Stable sort- Depends on the if condition of the inner for loop
+//Stable sort- Yes
 
 //Loop Invariance:
 At the start of each iteration, i elements of the array-A[0] to A[i-1] are sorted and size-i elements A[i] to A[size-1] elements are unsorted.
