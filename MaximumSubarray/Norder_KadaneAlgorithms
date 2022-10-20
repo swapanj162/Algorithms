@@ -9,7 +9,7 @@ void MaxSubArrayN(int *num,int size)
    cout<<"GlobalMax is "<<globalMax<<endl;
    for(int i=1;i<size;i++)
    {
-      if(num[i]>localMax+num[i])//LocalMax at index i is Max(LocalMax at index i-1,num[i])
+      if(num[i]>localMax+num[i])//LocalMax at index i is Max(LocalMax at index i-1+num[i],num[i])
       {
          localMax=num[i];
       }
