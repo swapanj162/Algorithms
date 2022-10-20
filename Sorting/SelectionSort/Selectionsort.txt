@@ -1,1 +1,54 @@
+//Selection Sort
+//Time- O(n^2)
+//Space-O(1)-In Place Sort
+//Stability- Depends on the If condition in the inner for loop
+//Best Case complexity-Omega(n^2)
 
+
+//Loop Invariance:
+At the start of each iteration i of the outer loop,i elements of the subarray A is sorted and SIZE − i elements are unsorted.
+
+Initialization:
+
+At the beginning-i = 0 and j = 1, No element in the array is sorted since i = 0 and the SIZE − i = SIZE elements are unsorted.
+
+Maintenance:
+
+After i iterations of the outer-loop and prior to (i + 1)th iteration, i elements are sorted and SIZE − i elements are unsorted.
+After(i+1)th iteration,i+1elementsaresortedandSIZE−i−1elementsareunsorted. 
+
+Termination:
+
+After SIZE-1 outer loops,SIZE − 1 elements are sorted and 1 last element remains. Since 1 last element need not be sorted, we can say that our entire array is now sorted.
+Hence the Algorithm is correct.
+
+
+void swap_selectionsort(int A[],int i,int minpos)
+{
+   int temp=A[i];
+   A[i]=A[minpos];
+   A[minpos]=temp;
+}
+
+void selectionsort(int A[],int size)
+{
+   int minpos;
+   //1.scan the array from 0 to n-1
+   for(int i=0;i<size-1;i++)
+   {
+      minpos=i;
+      //2.for each position i, find the minimum value in the remaining elements 
+      for(int j=i+1;j<size;j++)
+      {
+         if(A[j]<A[minpos])
+         {
+            minpos=j;
+         }
+      }
+      //3. swap it with the existing element
+      if(i!=minpos)
+      {
+         swap_selectionsort(A,i,minpos);
+      }
+   }
+}
