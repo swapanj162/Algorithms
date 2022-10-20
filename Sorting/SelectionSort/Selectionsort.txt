@@ -1,7 +1,7 @@
 //Selection Sort
 //Time- O(n^2)
 //Space-O(1)-In Place Sort
-//Stability- Depends on the If condition in the inner for loop
+//Stability- No
 //Best Case complexity-Omega(n^2)
 
 
