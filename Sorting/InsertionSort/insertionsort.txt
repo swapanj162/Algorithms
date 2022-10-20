@@ -1,1 +1,50 @@
+//Insertion Sort
+//Worst case- O(n^2)
+//Best Case-O(n)
+//Average case- O(n^2)
+//In Place Sorting
+//Stable sort- Depends on the if condition of the inner for loop
 
+//Loop Invariance:
+At the start of each iteration, i elements of the array-A[0] to A[i-1] are sorted and size-i elements A[i] to A[size-1] elements are unsorted.
+
+//Initialization:
+At the beginning, i=0. Thus 0 elements are sorted and Size elements are unsorted
+
+//Maintenence:
+After i+1 iterations of the outer for loop, i elements of the array are sorted while Size- i elements are unsorted
+
+//Termination:
+After Size-1 outer loops, Size-1 elements are sorted, Only 1 element remains that need not be sorted.
+
+
+
+void insertionsort(int A[],int size) //Sort Elements in Ascending order
+{
+   int pos,temp;
+   //1.Move from i =0 to i=n-1
+   for(int i=0;i<size;i++)
+   {
+      pos=i;
+      //2.for each i compare a[i] to j=0 to i-1
+      for(int j=i-1;j>=0;j--)
+      {
+         if(A[pos]<A[j])
+         {
+            //3.move the element at appropriate index
+            temp=A[pos];
+            A[pos]=A[j];
+            A[j]=temp;
+            pos=pos-1;
+
+         }
+         else
+         {
+            break;
+         }
+
+      }
+   }
+   
+   
+}
