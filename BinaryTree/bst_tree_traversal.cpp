@@ -103,3 +103,10 @@ int main()
    std::cout<<std::endl;
 	return 0;
 }
+
+
+Output:
+Hello World
+Inorder Traversal:235579
+Preorder Traversal:532579
+PostOrder Traversal253975
